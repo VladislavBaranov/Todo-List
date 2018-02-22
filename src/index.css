@@ -1,0 +1,324 @@
+html,body {
+	margin: 0;
+	padding: 0;
+}
+
+button {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	font-size: 100%;
+	vertical-align: baseline;
+	color: inherit;
+}
+
+body {
+	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: 1.4em;
+	background: white;
+	color: #4d4d4d;
+	min-width: 230px;
+	max-width: 550px;
+	margin: 0 auto;
+	font-weight: 300;
+}
+
+:focus {
+	outline: 0;
+}
+
+.hidden {
+	display: none;
+}
+
+.todoapp {
+	background: #fff;
+	margin: 130px 0 40px 0;
+	position: relative;
+}
+
+
+.todoapp input::input-placeholder {
+	font-style: italic;
+	font-weight: 300;
+	color: #e6e6e6;
+}
+
+h1 {
+	width: 100%;
+	font-size: 100px;
+	font-weight: 100;
+	text-align: center;
+	color: rgba(138, 12, 12, 0.15);
+}
+
+.new-todo,
+.edit {
+	position: relative;
+	margin: 0;
+	width: 100%;
+	font-size: 24px;
+	line-height: 1.4em;
+	border: 0;
+	color: inherit;
+	padding: 6px;
+	border: 1px solid #999;
+	box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
+	
+}
+
+.new-todo {
+	padding: 16px 16px 16px 60px;
+	border: none;
+	background: rgba(0, 0, 0, 0.003);
+	box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+	
+}
+
+.main {
+	position: relative;
+	z-index: 2;
+	border-top: 1px solid #e6e6e6;
+}
+
+.toggle-all {
+	text-align: center;
+	border: none; 
+	opacity: 0;
+	position: absolute;
+}
+
+.toggle-all + label {
+	width: 60px;
+	height: 34px;
+	font-size: 0;
+	position: absolute;
+	top: -52px;
+	left: -13px;
+	transform: rotate(90deg);
+}
+
+.toggle-all + label:before {
+	content: '❯';
+	font-size: 22px;
+	color: #b97b7b;
+	padding: 10px 27px 10px 27px;
+}
+
+.toggle-all:checked + label:before {
+	color: #2aaf71;
+}
+
+.todo-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.todo-list li {
+	position: relative;
+	font-size: 24px;
+	border-bottom: 1px solid #ededed;
+}
+
+.todo-list li:last-child {
+	border-bottom: none;
+}
+
+.todo-list li.editing {
+	border-bottom: none;
+	padding: 0;
+}
+
+.todo-list li.editing .edit {
+	display: block;
+	width: 506px;
+	padding: 12px 16px;
+	margin: 0 0 0 43px;
+}
+
+.todo-list li.editing .view {
+	display: none;
+}
+
+.todo-list li .toggle {
+	text-align: center;
+	width: 130px;
+	height: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	opacity: 0;
+}
+
+.todo-list li .toggle + label {
+	background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23ededed%22%20stroke-width%3D%223%22/%3E%3C/svg%3E');
+	background-repeat: no-repeat;
+	background-position: center left;
+}
+
+.todo-list li .toggle:checked + label {
+	background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E');
+}
+
+.todo-list li label {
+	word-break: break-all;
+	padding: 15px 15px 15px 60px;
+	display: block;
+	transition: color 0.6s;
+}
+
+.todo-list li.completed label {
+	color: #816c6c;	
+}
+
+.todo-list li .destroy {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 10px;
+	bottom: 0;
+	width: 40px;
+	height: 40px;
+	margin: auto 0;
+	font-size: 30px;
+	color: #cc9a9a;
+	margin-bottom: 11px;
+	transition: color 0.6s;
+}
+
+.todo-list li .destroy:hover {
+	color: #af5b5e;
+}
+
+.todo-list li .destroy:after {
+	content: '×';
+}
+
+.todo-list li:hover .destroy {
+	display: block;
+}
+
+.todo-list li .edit {
+	display: none;
+}
+
+.todo-list li.editing:last-child {
+	margin-bottom: -1px;
+}
+
+.footer {
+	color: #777;
+	padding: 10px 15px 20px 15px;
+	height: 20px;
+	text-align: center;
+	border-top: 1px solid #e6e6e6;
+}
+
+.footer:before {
+	content: '';
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 50px;
+	overflow: hidden;
+	border-bottom: 1px solid #e6e6e6;
+}
+
+.todo-count {
+	float: left;
+	text-align: left;
+}
+
+.filters {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	position: absolute;
+	left: 120px;
+	
+}
+
+.filters li {
+	display: inline;
+}
+
+.filters li a {
+	margin: 3px;
+	padding: 3px 7px;
+	text-decoration: none;
+	border: 1px solid transparent;
+	border-radius: 3px;
+}
+
+.filters li a:hover {
+	border-color: rgba(175, 47, 47, 0.3);
+}
+
+.filters li a.selected {
+	border-color: rgba(175, 47, 47, 0.6);
+}
+
+.undo {
+	margin-top: -2px;
+	margin-left: 8px;
+	padding: 0;
+	list-style: none;
+	position: absolute;
+	left: 300px;
+}
+
+.undo button{
+	box-sizing: border-box;
+	width: 40px;
+	height: 24px;
+	border: 1px solid transparent;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.undo button:hover{
+	border-color: rgba(175, 47, 47, 0.3);
+}
+.undo button:active {
+	border-color: rgba(175, 47, 47, 0.6);
+}
+.undo span{
+	font-size: 23px;
+	line-height: 18px;
+}
+
+.clear-completed,
+html .clear-completed:active {
+	float: right;
+	position: relative;
+	line-height: 20px;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.clear-completed:hover {
+	text-decoration: underline;
+}
+
+.progress {
+	margin: 8px -15px 10px -15px;
+	padding: 2px;
+	background: rgba(0, 0, 0, 0.05);
+	border-radius: 4px;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), 0 1px rgba(255, 255, 255, 0.08);
+}
+  
+.progress-bar {
+	height: 8px;
+	border-radius: 3px;
+	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+	transition: 0.4s linear;
+	transition-property: width, background-color;
+	width: 95%; background-color:rgb (5,5,50);
+	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+}
+  
